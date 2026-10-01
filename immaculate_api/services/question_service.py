@@ -1,5 +1,5 @@
-from code.database.db_questions import QuestionData
-from code.models.models import Question, Answer
+from immaculate_api.database.db_questions import QuestionData
+from immaculate_api.models.models import Question, Answer
 
 class QuestionService:
     def __init__(self):

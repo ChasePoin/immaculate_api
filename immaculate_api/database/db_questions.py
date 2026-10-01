@@ -1,6 +1,6 @@
-from code import mongo
+from immaculate_api import mongo
 from flask import current_app
-from code.models.models import Question, QuestionRequest
+from immaculate_api.models.models import Question, QuestionRequest
 
 
 class QuestionData:

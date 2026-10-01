@@ -1,6 +1,7 @@
-from code import mongo
+from immaculate_api import mongo
 from flask import current_app
-from code.models.models import Player, PlayerRequest
+from immaculate_api.models.models import Player, PlayerRequest
+import os
 
 class PlayerData():
     def __init__(self):
@@ -14,9 +15,8 @@ class PlayerData():
             # it seems to be standard to do the queries like this
             # aggregate involves something like a "pipeline" which is something like a multi-stage data transformation
             match: dict = dict()
-
-            # never null
-            match["rating"] = {"$lt": player_request.rating}
+            if player_request.rating:
+                match["rating"] = {"$lte": int(player_request.rating)}
 
             # could be simpler if used a dictionary instead of a class, but I like having the model for PlayerRequest for clarity
             if player_request.pos:

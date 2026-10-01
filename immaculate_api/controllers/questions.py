@@ -1,7 +1,7 @@
 from . import api
 from flask import request, jsonify, current_app
-import code.database.db_questions as db
-from code.models.models import Question, Answer
+import immaculate_api.database.db_questions as db
+from immaculate_api.models.models import Question, Answer
 
 @api.route("/api/questions/create", methods=["POST"])
 def create_question():

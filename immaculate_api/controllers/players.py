@@ -1,14 +1,7 @@
 from . import api
 from flask import request, jsonify, current_app
-from code.models.models import Player, PlayerRequest
+from immaculate_api.models.models import Player, PlayerRequest
 
-
-# parameters:
-# rating
-# player_count
-# team
-# pos
-# name
 @api.route("/api/players", methods=["GET"])
 def get_players() -> list[Player]:
     """
@@ -116,7 +109,7 @@ def create_player():
         
         player = Player(**data)
 
-        if not player.name or not player.pos or not player.img or not int(player.rating) or not player.team:
+        if not player.name or not player.pos or not player.img or player.rating is None or not player.team:
             return jsonify({"error": f"missing a required field in request"}), 400
 
         id = current_app.player_service.create_player(

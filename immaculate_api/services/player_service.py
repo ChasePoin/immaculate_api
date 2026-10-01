@@ -1,5 +1,5 @@
-from code.database.db_players import PlayerData
-from code.models.models import Player, PlayerRequest
+from immaculate_api.database.db_players import PlayerData
+from immaculate_api.models.models import Player, PlayerRequest
 
 # following typical structure
 # we don't really have any "business logic" though...
